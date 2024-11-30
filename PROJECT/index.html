@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LUVANS SPORT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-dark">
+        <div class="container">
+            <img src="img/firman.png" alt="">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#promosi">Promosi</a>
+                    </li>
+                    <li class="nav-item">
+                        <!-- Link untuk memanggil modal pemesanan -->
+                        <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#bookingModal">Pemesanan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#media-sosial">Media Sosial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#profil-usaha">Profil Usaha</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="btn btn-costum" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Masuk ke Akun Anda</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Login Form -->
+                    <form id="loginForm" onsubmit="return validateLoginForm(event)">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Masukkan password Anda" required>
+                        </div>
+                        <div id="error-message" class="text-danger mb-3" style="display:none;">
+                            <small>Nama pengguna atau password salah!</small>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Masuk</button>
+                        <p class="text-center mt-3">
+                            Belum punya akun? <a href="register.html">Daftar di sini</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <!-- Hero Section -->
+    <header class="hero text-center text-light" style="background-color: #282c34; padding: 120px 0;">
+        <div class="container" data-aos="fade-up">
+            <h1 class="display-4">Luvans Sport</h1>
+            <p class="lead">Pilih lapangan terbaik untuk bermain futsal, basket, voli, dan lainnya!</p>
+            <a href="#promosi" class="btn costum-header">Lihat Promosi</a>
+        </div>
+    </header>
+
+    <section id="promosi" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-right">Promosi Sewa Lapangan</h2>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/bola.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Sepak Bola</h5>
+                            <p class="card-text">Lapangan Prima, Aksi Maksimal - Main Sepak Bola Lebih Seru di Sini!.</p>
+                            <p class="fw-bold">Harga: Rp 5.000.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Futsal -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card shadow-sm">
+                        <img src="img/futsal.jpg" class="card-img-top" alt="Lapangan Futsal">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Futsal</h5>
+                            <p class="card-text">Diskon 20% untuk penyewaan lapangan futsal hari ini!</p>
+                            <p class="fw-bold">Harga: Rp 120.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Basket -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card shadow-sm">
+                        <img src="img/basket.jpg" class="card-img-top" alt="Lapangan Basket">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Basket</h5>
+                            <p class="card-text">Nikmati bermain basket dengan lapangan berkualitas tinggi.</p>
+                            <p class="fw-bold">Harga: Rp 200.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Voli -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card shadow-sm">
+                        <img src="img/voli.jpg" class="card-img-top" alt="Lapangan Voli">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Voli</h5>
+                            <p class="card-text">Sewa lapangan voli untuk aktivitas olahraga tim Anda.</p>
+                            <p class="fw-bold">Harga: Rp 180.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Bulu Tangkis -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card shadow-sm">
+                        <img src="img/bultang.jpg" class="card-img-top" alt="Lapangan Bulu Tangkis">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Bulu Tangkis</h5>
+                            <p class="card-text">Lapangan bulu tangkis dengan fasilitas profesional.</p>
+                            <p class="fw-bold">Harga: Rp 75.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Tenis -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="card shadow-sm">
+                        <img src="img/tenis.jpg" class="card-img-top" alt="Lapangan Tenis">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Tenis Meja</h5>
+                            <p class="card-text">Main Tenis Meja Lebih Nyaman di Lapangan Berkualitas Terbaik!.</p>
+                            <p class="fw-bold">Harga: Rp 50.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="card shadow-sm">
+                        <img src="img/bolatenis.jpg" class="card-img-top" alt="Lapangan Tenis">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Bola Tenis</h5>
+                            <p class="card-text">Sewa lapangan tenis dengan permukaan terbaik.</p>
+                            <p class="fw-bold">Harga: Rp 300.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card Mini Soccer -->
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/soccer.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Mini Soccer</h5>
+                            <p class="card-text">Bermain sepak bola mini di lapangan eksklusif.</p>
+                            <p class="fw-bold">Harga: Rp 400.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/takraw.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Takraw</h5>
+                            <p class="card-text">Pantulkan Semangat, Taklukkan Lapangan Takraw!</p>
+                            <p class="fw-bold">Harga: Rp 100.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/baseball.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Baseball</h5>
+                            <p class="card-text">Lapangan Baseball Premium untuk Setiap Lemparan dan Pukulan Terbaik!</p>
+                            <p class="fw-bold">Harga: Rp 1.000.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/kriket.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Kriket</h5>
+                            <p class="card-text">Nikmati Permainan Kriket di Lapangan Standar Internasional!</p>
+                            <p class="fw-bold">Harga: Rp 1.500.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/hoki.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Hoki</h5>
+                            <p class="card-text">Lapangan Terbaik untuk Aksi Hoki yang Dinamis dan Seru!</p>
+                            <p class="fw-bold">Harga: Rp 1.800.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/squash.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Squash</h5>
+                            <p class="card-text">Raih Kecepatan dan Ketangkasan di Lapangan Squash Terbaik!</p>
+                            <p class="fw-bold">Harga: Rp 150.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/rugby.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Rugby</h5>
+                            <p class="card-text">Lapangan Tangguh untuk Aksi Rugby Tanpa Batas!</p>
+                            <p class="fw-bold">Harga: Rp 2.000.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card shadow-sm">
+                        <img src="img/softball.jpg" class="card-img-top" alt="Lapangan Mini Soccer">
+                        <div class="card-body">
+                            <h5 class="card-title">Lapangan Softball</h5>
+                            <p class="card-text">Mainkan Softball dengan Gaya di Lapangan Berkualitas Tinggi!</p>
+                            <p class="fw-bold">Harga: Rp 1.300.000/jam</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">
+                                Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Profil Usaha -->
+    <section id="profil-usaha" >
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-left">Tentang Kami</h2>
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <img src="img/bareng.jpg" class="img-fluid  rounded shadow-sm" alt="Profil Usaha">
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <p class="fw-bold">Selamat datang di LUVANS SPORT, tempat terbaik untuk memenuhi kebutuhan olahraga Anda! Kami menyediakan layanan penyewaan lapangan olahraga berkualitas untuk mendukung aktivitas fisik dan gaya hidup sehat.</p>
+                    <h5 class="mt-4">Visi Kami</h5>
+                    <p>Menjadi penyedia lapangan olahraga unggulan yang mendukung masyarakat untuk hidup lebih aktif, sehat, dan produktif.</p>
+                    <h5 class="mt-4">Layanan Kami</h5>
+                    <ul class="list-group mb-4">
+                        <li class="list-group-item">Futsal</li>
+                        <li class="list-group-item">Basket</li>
+                        <li class="list-group-item">Sepak Bola</li>
+                        <li class="list-group-item">Voli</li>
+                        <li class="list-group-item">dan masih banyak lainnya!</li>
+                    </ul>
+                    <h5 class="mt-4">Mengapa Memilih Kami?</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">Fasilitas Modern: Lapangan dengan perawatan terbaik untuk kenyamanan bermain.</li>
+                        <li class="list-group-item">Lokasi Strategis: Mudah dijangkau dari berbagai area.</li>
+                        <li class="list-group-item">Harga Terjangkau: Paket sewa sesuai kebutuhan Anda.</li>
+                        <li class="list-group-item">Pelayanan Ramah: Staf profesional siap membantu Anda.</li>
+                    </ul>
+                    <p class="mt-4">Mari bermain dan berolahraga bersama kami! Hubungi kami untuk informasi lebih lanjut atau reservasi. 🌟</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Form Pemesanan -->
+    <div class="modal fade" id="bookingModal" tabindex="-1" aria-labelledby="bookingModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bookingModalLabel">Form Pemesanan Lapangan</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="bookingForm" onsubmit="return validateBookingForm(event)">
+                        <!-- Jenis Olahraga -->
+                        <div class="mb-3">
+                            <label for="sportType" class="form-label">Pilih Jenis Olahraga</label>
+                            <select id="sportType" class="form-select" required>
+                                <option value="">Pilih...</option>
+                                <option value="Sepak Bola">Lapangan Sepak Bola - Rp 5.000.000/jam</option>
+                                <option value="Futsal">Lapangan Futsal - Rp 120.000/jam</option>
+                                <option value="Basket">Lapangan Basket - Rp 200.000/jam</option>
+                                <option value="Voli">Lapangan Voli - Rp 180.000/jam</option>
+                                <option value="Bulu Tangkis">Lapangan Bulu Tangkis - Rp 75.000/jam</option>
+                                <option value="Tenis Meja">Lapangan Tenis Meja - Rp 50.000/jam</option>
+                                <option value="Tenis">Lapangan Bola Tenis - Rp 300.000/jam</option>
+                                <option value="Rugby">Lapangan Rugby - Rp 2.000.000/jam</option>
+                                <option value="Takraw">Lapangan Takraw - Rp 100.000/jam</option>
+                                <option value="Baseball">Lapangan Baseball - Rp 1.000.000/jam</option>
+                                <option value="Softball">Lapangan Softball - Rp 1.300.000/jam</option>
+                                <option value="Squash">Lapangan Squash - Rp 150.000/jam</option>
+                                <option value="Kriket">Lapangan Kriket - Rp 1.500.000/jam</option>
+                                <option value="Hoki">Lapangan Hoki - Rp 1.800.000/jam</option>
+                                <option value="mini">Lapangan Mini Soccer - Rp 400.000/jam</option>
+
+                            </select>
+                        </div>
+
+                        <!-- Waktu Pemesanan -->
+                        <div class="mb-3">
+                            <label for="bookingTime" class="form-label">Tanggal dan Waktu Pemesanan</label>
+                            <input type="datetime-local" id="bookingTime" class="form-control" required>
+                        </div>
+
+                        <!-- Nama Pemesan -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Nama Pemesan</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+
+                        <!-- Pesan Error -->
+                        <div id="error-message" class="alert alert-danger" style="display: none;"></div>
+
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary">Pesan Sekarang</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Profil Pengembang Section -->
+    <section id="profil-pengembang" >
+        <div class="container">
+            <h2 class="text-center mb-4" data-aos="fade-up">Tentang Pengembang</h2>
+            <div class="row align-items-center">
+                <!-- Foto Pengembang -->
+                <div class="col-md-4" data-aos="fade-right" data-aos-delay="200">
+                    <div class="profile-photo rounded border border-2 border-dark">
+                        <img src="img/me.jpg" class="img-fluid rounded border-5 shadow-lg" alt="Profil Pengembang">
+                    </div>
+                </div>
+
+                <!-- Deskripsi Diri -->
+                <div class="col-md-8" data-aos="fade-left" data-aos-delay="300" id="lalu">
+                    <h3 class="mb-3">Halo, Saya LALU FIRMAN SYAH</h3>
+                    <p>Saya adalah seorang <strong>pengembang web</strong> dengan hasrat untuk menciptakan platform inovatif yang membantu memecahkan masalah sehari-hari. Berfokus pada penyediaan solusi praktis di bidang olahraga, saya membuat platform ini agar Anda dapat dengan mudah menyewa lapangan olahraga sesuai kebutuhan, kapan saja.</p>
+
+                    <p><strong>Visi saya</strong> adalah untuk menghubungkan orang-orang dengan fasilitas olahraga terbaik di sekitar mereka, memudahkan akses, dan memberikan pengalaman olahraga yang menyenangkan. Dalam proses pengembangan platform ini, saya terus belajar dan berkembang untuk memberikan yang terbaik bagi pengguna.</p>
+
+                    <p>Berikut beberapa keahlian dan pengalaman yang saya miliki:</p>
+                    <ul>
+                        <li><strong>Web Development:</strong> Frontend & Backend (HTML, CSS, JavaScript, PHP, MySQL)</li>
+                        <li><strong>UX/UI Design:</strong> Desain yang berfokus pada pengalaman pengguna yang intuitif</li>
+                        <li><strong>Problem Solving:</strong> Menghadirkan solusi untuk mempermudah berbagai proses melalui teknologi</li>
+                    </ul>
+
+                    <p><strong>Kontak saya:</strong></p>
+                    <ul>
+                        <li><i class="bi bi-envelope"></i> <a href="mailto:[firmansyahecok@gmail.com]">firmansyahecok@gmail.com</a></li>
+                        <li><i class="bi bi-phone"></i>  6283455873475</li>
+                        <li><i class="bi bi-linkedin"></i> <a href="[LinkedIn URL]" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Testimonial Section -->
+            <div class="row mt-5" id="reviw">
+                <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="mb-4">Apa Kata Pengguna?</h3>
+                    <!-- Testimonial Carousel -->
+                    <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <!-- Testimonial 1 -->
+                            <div class="carousel-item active">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/ghozy.jpg" alt="Ghozyberry bin Marzuki" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Platform ini benar-benar mempermudah proses penyewaan lapangan olahraga, sangat user-friendly!"</p>
+                                        <h5 class="testimonial-author fw-bold">Ghozyberry bin Marzuki</h5>
+                                        <small class="text-secondary">Manager Persija, Jakarta</small>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <!-- Testimonial 2 -->
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/Tari.jpeg" alt="Tari Anwar" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Sangat bermanfaat bagi komunitas kami. Kami bisa dengan mudah menyewa lapangan untuk acara futsal!"</p>
+                                        <h5 class="testimonial-author fw-bold">Tari Anwar</h5>
+                                        <small class="text-secondary">Pelatih Bulu Tangkis, Depok</small>
+                                    </div>
+                                </div>
+                            </div>
+            
+                            <!-- Tambah Testimonial Baru -->
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/ulul.jpg" alt="Ulul" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Lapangan yang tersedia sangat terawat. Proses bookingnya juga cepat dan mudah!"</p>
+                                        <h5 class="testimonial-author fw-bold">Uulul Azmi</h5>
+                                        <small class="text-secondary">Pemain Futsal Nasional</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/ariq.jpg" alt="Ariq" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Navigasi sangat jelas, terutama untuk kategori olahraga. Saya langsung bisa menemukan lapangan yang saya butuhkan tanpa kebingungan."</p>
+                                        <h5 class="testimonial-author fw-bold">Ariq Jumpshoot</h5>
+                                        <small class="text-secondary">Atlet Kriket, Bekasi</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/nuril.jpg" alt="Nuril" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Tombol “Pesan Sekarang” yang terlihat menonjol mempermudah saya untuk melakukan tindakan langsung."</p>
+                                        <h5 class="testimonial-author fw-bold">Nuril Keriwil</h5>
+                                        <small class="text-secondary">Pemain Hoki, Bekasi</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/mufahat.jpeg" alt="Fatih" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Setiap lapangan memiliki detail yang jelas, mulai dari deskripsi, harga, hingga gambar. Ini membantu saya membuat keputusan tanpa perlu banyak bertanya."</p>
+                                        <h5 class="testimonial-author fw-bold">Fatih Mufahat</h5>
+                                        <small class="text-secondary">Kapten LA Lakers, Cibinong</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/sata.jpg" alt="Satya" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Harga yang dicantumkan sangat transparan, sehingga saya merasa percaya diri tanpa takut ada biaya tersembunyi."</p>
+                                        <h5 class="testimonial-author fw-bold">Satya Fadhilah</h5>
+                                        <small class="text-secondary">Atlet Gulat, Kalimantan</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/dahlia.jpeg" alt="Dahlia" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">Loading website cukup cepat, namun jika internet lambat, beberapa gambar membutuhkan waktu lebih lama untuk tampil. Mungkin gambar bisa dioptimalkan lebih lanjut.</p>
+                                        <h5 class="testimonial-author fw-bold">Dahlia~</h5>
+                                        <small class="text-secondary">Pelatih Yoga, Lombok</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/tendan.jpeg" alt="Tendan" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Gambar lapangan berkualitas tinggi, memberi gambaran yang nyata tentang fasilitasnya. Ini penting bagi pengguna yang mengutamakan kualitas visual sebelum menyewa."</p>
+                                        <h5 class="testimonial-author fw-bold">Tendan Tampan</h5>
+                                        <small class="text-secondary">Atlet Baseball Nasional, England</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/amaya.jpeg" alt="Amaya Eshia" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Senang melihat variasi olahraga yang ditawarkan. Ada lapangan untuk tenis, badminton, voli, hingga olahraga yang jarang saya temui di tempat lain, seperti kriket dan rugby."</p>
+                                        <h5 class="testimonial-author fw-bold">Amaya Eshia</h5>
+                                        <small class="text-secondary">Fisioterapis Olahraga, Medan</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/bocil.jpg" alt="Mubayyinah" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Lapangan sering tersedia saat saya cari, tapi kadang ada yang penuh di waktu-waktu sibuk. Jadi, saya sering memesan jauh-jauh hari."</p>
+                                        <h5 class="testimonial-author fw-bold">Mubayyinah</h5>
+                                        <small class="text-secondary">Atlet Marathon, Lombok</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/nafila.jpeg" alt="Nafila" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Saya sering menggunakan ponsel untuk memesan lapangan. Website ini sangat mobile-friendly, jadi saya tidak kesulitan saat booking."</p>
+                                        <h5 class="testimonial-author fw-bold">Nafila</h5>
+                                        <small class="text-secondary">Atlet Voli, Bogor</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="card border-0 shadow-sm mx-auto" style="max-width: 600px;">
+                                    <div class="card-body text-center">
+                                        <img src="img/valia.jpeg" alt="Natasya Valia" class="rounded-circle mb-4 shadow" style="width: 120px; height: 120px; object-fit: cover;">
+                                        <p class="testimonial-text text-muted fst-italic">"Pelayanan pelanggan sangat ramah dan cepat. Mereka menjawab pertanyaan saya dengan jelas dan membantu saat ada masalah."</p>
+                                        <h5 class="testimonial-author fw-bold">Natasya Valia</h5>
+                                        <small class="text-secondary">Atlet Karate Nasional</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Navigasi Carousel -->
+                        <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+            </div>            
+        </div>
+    </section>
+
+    <script>
+        AOS.init();
+    </script>
+
+    <section id="lokasi" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Lokasi Kami</h2>
+            <div class="row">
+                <div class="col-12" data-aos="fade-up" data-aos-delay="200">
+                    <div class="map-container rounded shadow" style="overflow: hidden; height: 400px;">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15865.444932624849!2d106.7974666!3d-6.2160016!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f749eaf101f5%3A0xcd62c14b7a08da30!2sGBK%20Arena!5e0!3m2!1sen!2sid!4v1732939197135!5m2!1sen!2sid"
+                            width="100%" 
+                            height="400" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            <p class="text-center mt-4">
+                Kunjungi kami di lokasi strategis untuk mempermudah akses ke lapangan olahraga berkualitas!
+            </p>
+        </div>
+    </section>
+
+
+    <section id="media-sosial" >
+        <div class="container text-center">
+            <h3 class="mb-4" data-aos="fade-up" id="media">Ikuti Kami di Media Sosial</h2>
+            <p class="mb-1" id="media" data-aos="fade-up" data-aos-delay="100">Tetap terhubung dengan kami untuk mendapatkan informasi terbaru tentang promosi dan aktivitas.</p>
+            <div class="d-flex justify-content-center gap-4">
+                <!-- Facebook Icon -->
+                <a href="https://facebook.com" target="_blank" class="text-decoration-none" data-aos="fade-up" data-aos-delay="200">
+                    <i class="bi bi-facebook fs-1 text-primary"></i>
+                </a>
+                <!-- Instagram Icon -->
+                <a href="https://instagram.com/firrmanssyah_llalu" target="_blank" class="text-decoration-none" data-aos="fade-up" data-aos-delay="300">
+                    <i class="bi bi-instagram fs-1 text-danger"></i>
+                </a>
+                <!-- Twitter Icon -->
+                <a href="https://twitter.com" target="_blank" class="text-decoration-none" data-aos="fade-up" data-aos-delay="400">
+                    <i class="bi bi-twitter fs-1 text-info"></i>
+                </a>
+                <!-- YouTube Icon -->
+                <a href="https://youtube.com" target="_blank" class="text-decoration-none" data-aos="fade-up" data-aos-delay="500">
+                    <i class="bi bi-youtube fs-1 text-danger"></i>
+                </a>
+                <!-- WhatsApp Icon -->
+                <a href="https://wa.me/6282341503281" target="_blank" class="text-decoration-none" data-aos="fade-up" data-aos-delay="600">
+                    <i class="bi bi-whatsapp fs-1 text-success"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="py-1 bg-dark text-light text-center">
+        <div class="container">
+            <p>&copy; 2024 SewaLapangan. Dikembangkan oleh Lalu Firman Syah </p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
